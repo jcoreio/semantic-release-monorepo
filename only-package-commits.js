@@ -2,7 +2,7 @@ const readPkg = require('read-pkg')
 const debug = require('debug')('@jcoreio/semantic-release-monorepo')
 
 const getAffectedPackages = (commit) => {
-  const match = /^affects: (.+)/.exec(commit.message)
+  const match = /^[Aa]ffects:\s*(.+)/gim.exec(commit.message)
   return match ? match[1].split(/\s*,\s*/g).map((s) => s.trim()) : []
 }
 
